@@ -3,6 +3,6 @@ class User < ActiveRecord::Base
 
   attr_accessor :email, :password, :password_confirmation
 
-  validates_uniqueness_of :email
+  validates :email, uniquness: true
 
 end
