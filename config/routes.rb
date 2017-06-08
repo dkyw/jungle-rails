@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
 
   #route for registration
-  resources :users, only:[:new]
+  resources :users, only:[:new, :create]
 
   resource :cart, only: [:show] do
     put    :add_item
