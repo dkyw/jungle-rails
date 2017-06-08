@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
 
-  #route for registration
-  resources :users, only:[:new, :create]
+  #route for registration/ log in
+  resources :users, only: [:new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
 
   resource :cart, only: [:show] do
     put    :add_item
