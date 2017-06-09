@@ -133,4 +133,27 @@ cat3.products.create!({
 })
 
 
+
+user1 = User.create(first_name: 'derrell', last_name: 'wong', email: 'dw@gmail.com', password_digest: '123')
+user2 = User.create(first_name: 'wong', last_name: 'derrell', email: 'wd@gmail.com', password_digest: '321')
+
+user1.reviews.create!({
+  product_id: 1,
+  description: "Great buy!",
+  rating: 5
+})
+
+user1.reviews.create!({
+  product_id: 3,
+  description: "Worth the price",
+  rating: 3
+})
+
+
+user2.reviews.create!({
+  product_id: 3,
+  description: "Breaks easily",
+  rating: 2
+})
+
 puts "DONE!"
