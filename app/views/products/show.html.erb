@@ -44,19 +44,16 @@
 <% if current_user %>
 
   <%= form_for([@product, @new_review]) do |form| %>
-    <div class="field">
-      <%= form.label :rating %>
-      <%= form.select :rating, [ 1,2,3,4,5 ], :prompt => 'Select One' %>
-    </div>
 
-     <div class="field">
-      <%= form.label :description %>
+    <div class="form-group">
+      <%= form.label :rating, class: 'review'  %>
+      <%= form.select :rating, [ 1,2,3,4,5 ], :prompt => 'Select One' %>
+      </br>
+      <%= form.label :description, class: 'review' %>
       <%= form.text_area :description %>
     </div>
 
-    <div class="actions">
-      <%= form.submit %>
-    </div>
-
+  <%= form.submit 'Submit', class: 'btn btn-primary' %>
   <% end %>
+
 <% end %>
