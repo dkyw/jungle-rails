@@ -1,5 +1,7 @@
 
 class ApplicationController < ActionController::Base
+
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -12,12 +14,16 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  # def authorize
+  #   redirect_to root_url unless current_user
+  # end
 
 
   def cart
     # value = cookies[:cart] || JSON.generate({})
     @cart ||= cookies[:cart].present? ? JSON.parse(cookies[:cart]) : {}
   end
+
   helper_method :cart
 
   def update_cart(new_cart)

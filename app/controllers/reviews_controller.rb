@@ -1,6 +1,8 @@
 class ReviewsController < ApplicationController
 
- def create
+  # before_filter :authorize
+
+  def create
     @review = Review.new(review_params)
     @review.product_id = params[:product_id]
     @review.user = current_user

@@ -1,8 +1,8 @@
 <section class="products-show">
 
-  <header class="page-header">
+ <header class="page-header">
     <h1><%= link_to @product.category.name, @product.category %> &raquo; <%= @product.name %></h1>
-  </header>
+</header>
 
   <article class="product-detail">
 
@@ -38,20 +38,22 @@
 
 
 
-<%= form_for([@product, @new_review]) do |form| %>
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.select :rating, [ 1,2,3,4,5 ], :prompt => 'Select One' %>
-  </div>
+<% if current_user %>
 
-   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+  <%= form_for([@product, @new_review]) do |form| %>
+    <div class="field">
+      <%= form.label :rating %>
+      <%= form.select :rating, [ 1,2,3,4,5 ], :prompt => 'Select One' %>
+    </div>
 
+     <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
 
+  <% end %>
 <% end %>
