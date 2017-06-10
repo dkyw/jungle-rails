@@ -10,6 +10,11 @@ class ProductsController < ApplicationController
     @new_review = Review.new
   end
 
+
 end
+
+
+
+
 
 
