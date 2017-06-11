@@ -1,5 +1,10 @@
 <div class="row">
   <div class="col-sm-6 col-sm-offset-1">
+
+    <% if flash[:error] %>
+      <div class="alert alert-danger"><%= flash[:error]%></div>
+    <% end %>
+
     <%= form_tag sessions_path do %>
 
       <div class="form-group">
@@ -17,4 +22,7 @@
 
   </div>
 </div>
+
+
+
 
