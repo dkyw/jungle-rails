@@ -3,6 +3,21 @@
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
 
+!["home page"](https://github.com/dkyw/jungle-rails/blob/master/doc/home.png)
+!["checkout"](https://github.com/dkyw/jungle-rails/blob/master/doc/checkout.png)
+!["review"](https://github.com/dkyw/jungle-rails/blob/master/doc/review.png)
+![user authentication"](https://github.com/dkyw/jungle-rails/blob/master/doc/admin%20access.png)
+
+## Features added and Bug Fixes
+  Feature: Sold Out Badge
+  Feature: Admin Categories
+  Feature: User authentication
+  Enhancement: Order Details Page
+  Feature: Email Receipt
+  Feature:  Product Rreviews
+  Bug: Missing Admin Security
+  Bug: Checking Out with Empty Cart
+
 ## Setup
 
 1. Fork & Clone
