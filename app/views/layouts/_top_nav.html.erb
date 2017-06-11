@@ -7,10 +7,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-
       </button>
       <a class="navbar-brand" href="/">Jungle</a>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -53,11 +53,15 @@
 </nav>
 
 <% if current_user %>
-  Logged in as <%= current_user.email %>
-  <%= link_to "Log Out", session_path("current"), method: "delete" %>
+  <h4 class='current-user pull-right'>
+    Logged in as <%= current_user.email %>
+    <%= link_to "Log Out", session_path("current"), method: "delete" %>
+  </h4>
 <% else %>
-  <%= link_to "Sign Up", new_user_path %> or
-  <%= link_to "Log In", new_session_path %>
+  <h4 class='current-user pull-right'>
+    <%= link_to "Sign Up", new_user_path %> or
+    <%= link_to "Log In", new_session_path %>
+  </h4>
 <% end %>
 
 
