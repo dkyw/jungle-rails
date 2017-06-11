@@ -12,7 +12,7 @@
         <%= image_tag @product.image.url, class: 'main-img' %>
       </div>
 
-      <div class="col-sm-8">
+    <div class="col-sm-8">
         <dl class="dl-horizontal">
           <dt>Name</dt>
           <dd><%= @product.name %></dd>
@@ -22,15 +22,6 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
-          <dt>Review</dt>
-          <dd>
-            <% @review.each do |review| %>
-              <%= review.rating %> - <%= review.description %> - <%= review.user.first_name %>
-                <% if current_user && current_user.id == review.user_id %>
-                  <td> <%= link_to fa_icon('trash'), [review.product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %></td>
-                <% end %>
-              <% end %>
-          </dd>
         </dl>
       </div>
     </div>
@@ -39,21 +30,53 @@
 
 </section>
 
+<section class="products-review">
+  <h2>Reviews:</h2>
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center">Ratings</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @review.each do |review| %>
+          <tr>
+            <td class="col-md-1 col-lg-1 col-sm-1 col-xs-1 text-center ratings"><%= review.rating %></td>
+            <td>
+            <%= review.description %> <br />-<%= review.user.first_name %>
+            <% if current_user && current_user.id == review.user_id %>
+              <%= link_to fa_icon('trash'), [review.product, review], class: 'btn btn-sm btn-danger pull-right', method: :delete, data: { confirm: "Are you sure?" } %>
+            <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
 
 
-<% if current_user %>
-
-  <%= form_for([@product, @new_review]) do |form| %>
-
-    <div class="form-group">
-      <%= form.label :rating, class: 'review'  %>
-      <%= form.select :rating, [ 1,2,3,4,5 ], :prompt => 'Select One' %>
-      </br>
-      <%= form.label :description, class: 'review' %>
-      <%= form.text_area :description %>
-    </div>
-
-  <%= form.submit 'Submit', class: 'btn btn-primary' %>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-1">
+  <% if current_user %>
+  <h2>Post Review:</h2>
+    <%= form_for([@product, @new_review]) do |form| %>
+      <div class="form-group">
+        <%= form.label :rating %>
+        <%= form.select :rating, [[1], [2], [3], [4], [5]], { include_blank: true }, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :description %>
+        <%= form.text_field :description, class: 'form-control' %>
+      </div>
+      <div class="actions">
+        <%= form.submit 'Submit', class: 'btn btn-primary'%>
+      </div>
+    <% end %>
   <% end %>
+    </div>
+  </div>
 
-<% end %>
+
+</section>
+
+
