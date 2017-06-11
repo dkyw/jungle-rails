@@ -9,14 +9,14 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 ![user authentication"](https://github.com/dkyw/jungle-rails/blob/master/doc/admin%20access.png)
 
 ## Features added and Bug Fixes
-  Feature: Sold Out Badge
-  Feature: Admin Categories
-  Feature: User authentication
-  Enhancement: Order Details Page
-  Feature: Email Receipt
-  Feature:  Product Rreviews
-  Bug: Missing Admin Security
-  Bug: Checking Out with Empty Cart
+- Feature: Sold Out Badge
+- Feature: Admin Categories
+- Feature: User authentication
+- Enhancement: Order Details Page
+- Feature: Email Receipt
+- Feature:  Product Rreviews
+- Bug: Missing Admin Security
+- Bug: Checking Out with Empty Cart
 
 ## Setup
 
