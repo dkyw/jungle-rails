@@ -39,7 +39,7 @@ RSpec.describe User, type: :model do
 
 
     it 'should check error if email is not unique and case sensitive' do
-     user1 = User.create!(
+      user1 = User.create!(
         first_name: 'first',
         last_name: 'last',
         email: 'current@user.com',
@@ -47,19 +47,33 @@ RSpec.describe User, type: :model do
         password_confirmation: 'qwerty'
         )
 
-     user2 = User.create(
+      user2 = User.create(
         first_name: 'next',
         last_name: 'user',
         email: 'CURRENT@USER.com',
         password: 'qwer12',
         password_confirmation: 'qwer12'
         )
-     expect(user2.errors.has_key?(:email)).to be_truthy
-   end
+      expect(user2.errors.has_key?(:email)).to be_truthy
+    end
+  end
 
-
+  describe '.authenticate_with_credentials' do
+    it "should pass if email has spaces before/after and is not case sensitive" do
+      user = User.create!(
+        first_name: 'dw',
+        last_name: 'wong',
+        email: 'dw@gmail.com',
+        password: '123456',
+        password_confirmation: '123456'
+      )
+    session = User.authenticate_with_credentials('  DW@gmail.com  ', '123456')
+    expect(session).to eq user
+    end
   end
 end
+
+
 
 
 

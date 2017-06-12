@@ -25,7 +25,6 @@ RSpec.describe Product, type: :model do
         quantity: 2,
         category: cat1
         )
-      # product.save!
       expect(product.errors.full_messages).to include("Name can't be blank")
     end
 
@@ -38,7 +37,6 @@ RSpec.describe Product, type: :model do
         quantity: 2,
         category: cat1
         )
-      # product.save!
       expect(product.errors.full_messages).to include("Price can't be blank")
     end
 
@@ -51,7 +49,6 @@ RSpec.describe Product, type: :model do
         quantity: nil,
         category: cat1
         )
-      # product.save!
       expect(product.errors.full_messages).to include("Quantity can't be blank")
     end
 
@@ -66,7 +63,6 @@ RSpec.describe Product, type: :model do
         quantity: 2,
         category: nil
         )
-      # product.save!
       expect(product.errors.full_messages).to include("Category can't be blank")
     end
 
