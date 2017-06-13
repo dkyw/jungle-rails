@@ -225,6 +225,7 @@ DEPENDENCIES
   rails (= 4.2.6)
   rails_12factor
   rails_serve_static_assets
+  rails_stdout_logging
   rmagick
   rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
